@@ -2,15 +2,28 @@ package factory
 
 type (
 	MethodFactoryFactory interface {
-		NewProductA() MethodFactoryProductA
-		NewProductB() MethodFactoryProductB
+		NewProduct() MethodFactoryProduct
 	}
 
-	MethodFactoryProductA interface {
-		MethodFactoryProductAFeature()
+	MethodFactoryProduct interface {
+		MethodFactoryProductMethod()
 	}
 
-	MethodFactoryProductB interface {
-		MethodFactoryProductBFeature()
-	}
+	MethodFactoryFactoryA struct{}
+	MethodFactoryFactoryB struct{}
+
+	MethodFactoryProductA struct{}
+	MethodFactoryProductB struct{}
 )
+
+func (f *MethodFactoryFactoryA) NewProduct() MethodFactoryProduct {
+	return new(MethodFactoryProductA)
+}
+
+func (f *MethodFactoryFactoryB) NewProduct() MethodFactoryProduct {
+	return new(MethodFactoryProductB)
+}
+
+func (p *MethodFactoryProductA) MethodFactoryProductMethod() {}
+
+func (p *MethodFactoryProductB) MethodFactoryProductMethod() {}
