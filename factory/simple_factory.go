@@ -8,16 +8,15 @@ type (
 	}
 
 	SimpleFactoryProductA struct{}
-
 	SimpleFactoryProductB struct{}
 )
 
 func (p *SimpleFactoryProductA) SimpleFactoryProductMethod() {}
 func (p *SimpleFactoryProductB) SimpleFactoryProductMethod() {}
 
-func (f *SimpleFactoryFactory) NewProduct(param string) SimpleFactoryProduct {
+func (f *SimpleFactoryFactory) NewSimpleFactoryProduct(productType string) SimpleFactoryProduct {
 
-	switch param {
+	switch productType {
 	case "A":
 		return new(SimpleFactoryProductA)
 	case "B":

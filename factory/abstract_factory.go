@@ -51,6 +51,5 @@ func NewAbstractFactoryFactory(factoryType string) AbstractFactoryFactory {
 	case "typeB":
 		return new(AbstractFactoryFactoryTypeY)
 	}
-
 	return nil
 }
